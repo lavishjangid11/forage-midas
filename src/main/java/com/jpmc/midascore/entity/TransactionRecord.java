@@ -38,3 +38,5 @@ public class TransactionRecord {
         return recipient;
     }
 }
+
+private BigDecimal incentive;
