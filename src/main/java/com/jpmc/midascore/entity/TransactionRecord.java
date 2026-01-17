@@ -26,8 +26,15 @@ public class TransactionRecord {
         this.recipient = recipient;
     }
 
-    // getters and setters
-    public BigDecimal getAmount() { return amount; }
-    public User getSender() { return sender; }
-    public User getRecipient() { return recipient; }
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public User getSender() {
+        return sender;
+    }
+
+    public User getRecipient() {
+        return recipient;
+    }
 }
