@@ -29,22 +29,27 @@ public class TransactionListener {
         var senderOpt = userRepository.findById(tx.getSenderId());
         var recOpt = userRepository.findById(tx.getRecipientId());
 
-        // 1. Validate users
+        // Validate IDs
         if (senderOpt.isEmpty() || recOpt.isEmpty())
             return;
 
         User sender = senderOpt.get();
         User recipient = recOpt.get();
 
-        // 2. Validate balance
+        // Validate balance
         if (sender.getBalance().compareTo(tx.getAmount()) < 0)
             return;
 
-        // 3. Update balances
-        sender.setBalance(sender.getBalance().subtract(tx.getAmount()));
-        recipient.setBalance(recipient.getBalance().add(tx.getAmount()));
+        // Update balances
+        sender.setBalance(
+            sender.getBalance().subtract(tx.getAmount())
+        );
 
-        // 4. Persist transaction
+        recipient.setBalance(
+            recipient.getBalance().add(tx.getAmount())
+        );
+
+        // Persist transaction
         TransactionRecord record =
             new TransactionRecord(tx.getAmount(), sender, recipient);
 
