@@ -9,9 +9,9 @@ import com.jpmc.midascore.repository.UserRepository;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
 @Autowired
 private RestTemplate restTemplate;
-
 private static final String URL =
     "http://localhost:8080/incentive";
 
